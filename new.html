@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Student Marks Analyzer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="new.css" />
+</head>
+<body>
+  <header class="top">
+    <h1>Student Marks Analyzer</h1>
+    <p>organization of mark analyze. Click a button to analyze the class.</p>
+  </header>
+
+  <main>
+    <!-- Summary: reduce(), every(), some(), find highest -->
+    <section class="summary" id="summary" aria-live="polite"></section>
+
+    <!-- Actions -->
+    <section class="panel controls">
+      <div class="button-row" id="actions">
+        <button data-action="all">All students</button>
+        <button data-action="above60">Scored above 60</button>
+        <button data-action="asc">Marks: low to high</button>
+        <button data-action="desc">Marks: high to low</button>
+        <button data-action="top">Highest scorer</button>
+        <button data-action="names">Names only</button>
+      </div>
+
+      <form id="search-form" class="search">
+        <label for="search-input">Find by name</label>
+        <input id="search-input" type="text" placeholder="e.g. Devadharshini" autocomplete="off" />
+        <button type="submit">Find</button>
+      </form>
+    </section>
+
+    <!-- Result -->
+    <section class="panel">
+      <div class="result-head">
+        <h2 id="result-title">All students</h2>
+        <span id="result-count"></span>
+      </div>
+      <p id="message" class="message" hidden></p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>#</th><th>Name</th><th>Department</th><th>Marks</th><th>Result</th><th></th></tr>
+          </thead>
+          <tbody id="table-body"></tbody>
+        </table>
+      </div>
+      <ul id="names-list" class="names" hidden></ul>
+    </section>
+
+    <!-- Add student: spread operator + default parameters -->
+    <section class="panel">
+      <h2>Add a student</h2>
+      <form id="add-form" class="add-form">
+        <input id="new-name" type="text" placeholder="Name" required />
+        <input id="new-dept" type="text" placeholder="Department (optional)" />
+        <input id="new-marks" type="number" min="0" max="100" placeholder="Marks" required />
+        <button type="submit">Add student</button>
+      </form>
+    </section>
+  </main>
+
+  <script src="new.js"></script>
+</body>
+</html>
